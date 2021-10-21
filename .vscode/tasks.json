@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [{
+            "label": "g++",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "C:\\software\\opencv\\build\\x64\\MinGw\\bin\\libopencv_world454.dll",
+                "-I","C:\\software\\opencv\\build\\include",
+                "-I","C:\\software\\opencv\\build\\include\\opencv2",
+                "-I","C:\\software\\opencv\\build\\include\\opencv",
+                "-L","C:\\software\\opencv\\build\\x64\\MinGw\\lib",
+                "-l","libopencv_world454"
+                
+            ],
+            "options": {
+                "cwd": "C:\\software\\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\\mingw64\\bin"
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
