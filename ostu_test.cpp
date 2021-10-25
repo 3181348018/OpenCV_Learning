@@ -11,7 +11,7 @@ int OtsuAlgThreshold(const Mat image);
 
 int main(int argc,char *argv[])  
 {  
-	Mat image=imread("box106.jpg");
+	Mat image=imread("Lena.jpg");
 	imshow("SoureImage",image);
 	cvtColor(image,image,cv::COLOR_RGB2GRAY );	
 	Mat imageOutput;
@@ -60,10 +60,10 @@ int OtsuAlgThreshold(const Mat image)
 			w1+=Histogram[j];  //背景部分像素点总数
 			u1+=j*Histogram[j]; //背景部分像素总灰度和
 		}
-		if(w1==0) //背景部分像素点数为0时退出
-		{
-			break;
-		}
+		// if(w1==0) //背景部分像素点数为0时退出
+		// {
+		// 	break;
+		// }
 		u1=u1/w1; //背景像素平均灰度
 		w1=w1/totalNum; // 背景部分像素点数所占比例
 		//***********背景各分量值计算**************************
