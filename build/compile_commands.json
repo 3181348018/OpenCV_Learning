@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Users/31813/Desktop/Class/code1/build",
+  "command": "C:\\software\\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe  @CMakeFiles/OpencvTest.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\OpencvTest.dir\\contour.cpp.obj -c C:\\Users\\31813\\Desktop\\Class\\code1\\contour.cpp",
+  "file": "C:/Users/31813/Desktop/Class/code1/contour.cpp"
+}
+]

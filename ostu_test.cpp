@@ -13,7 +13,7 @@ int main(int argc,char *argv[])
 {  
 	Mat image=imread("Lena.jpg");
 	imshow("SoureImage",image);
-	cvtColor(image,image,cv::COLOR_RGB2GRAY );	
+	cvtColor(image,image,cv::COLOR_RGB2GRAY);	
 	Mat imageOutput;
 	Mat imageOtsu;	
 	int thresholdValue=OtsuAlgThreshold(image);

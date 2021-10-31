@@ -13,12 +13,12 @@ int main()
 	Mat image;
 	GaussianBlur(imageSource,image,Size(3,3),0);
 	Mat lap_dst, dst;
-	Laplacian(image,lap_dst,CV_16S,3,1,0);
+	// Laplacian(image,lap_dst,CV_16S,3,1,0);
 	// absdiff(image,lap_dst,image);
 	// image = image - lap_dst;
-	Canny(image,image,50,250);//对图像进行边缘检测
+	// Canny(image,image,50,250);//对图像进行边缘检测
+	threshold(image,image,0,255,cv::THRESH_OTSU); //Opencv Otsu算法
 	imshow("边缘检测",image);
-	
 	vector<vector<Point>> contours;//vector容器里面放了一个vector容器，子容器里放点
 	vector<Vec4i> hierarchy;//vector内存储四维int向量，hierarchy[i][0] ~hierarchy[i][3]，分别表示第i个轮廓的后一个轮廓、前一个轮廓、父轮廓、内嵌轮廓的索引编号
 	findContours(image,contours,hierarchy,RETR_TREE,CHAIN_APPROX_SIMPLE,Point());

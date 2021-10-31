@@ -116,6 +116,33 @@ Mat mm = (Mat_<Vec3f>(2, 2) << Vec3f(1, 11, 21), Vec3f(2, 12, 32),
 
 ```
 
+多通道的Mat可以看作特殊的二维数组，每一个元素不是数值而是一个向量。
+
+分离通道使用split()函数
+
+合并通道使用merge函数
+
+使用 **rowRange或colRange** 得到矩阵的连续行或连序列
+
+注意：成员函数row、 col 、 rowRange 、colRange 返回的矩阵是指向原矩阵的，例如改变c_range第1行1列的值，原矩阵也会改变。使用成员函数clone解决。
+
+## 使用Rect类
+
+如果我们需要矩阵中一块矩形区域，我们可以使用rowRange和colRange来定位，但是Opencv提供了Rect类来简化操作。知道矩形的左上角坐标，和矩形的宽高就可以确定一个矩形，所以其构造函数为：
+
+`Rect(int _x,int _y, int _width, int _height);`
+
+也可以将 _width 和 _height保存在一个Size中
+
+`Rect(int _x,int _y, Size size);`
+
+如果知道左上角和右下角的坐标也可以确定一个矩形，所以构造函数为：
+
+`Rect(Point2i &pt1,Point2i &pt2);`
+
+
+
+
 
 
 

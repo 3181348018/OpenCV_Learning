@@ -1,0 +1,74 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceRoot}/build"
+    },
+    "tasks": [
+        {
+			"type": "cppbuild",
+			"label": "camke",
+			"command": "cmake",
+			"args": [
+				"-G",
+				"'MinGW Makefiles'",
+				".."
+			],
+		},
+        {
+			"label":"make",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"command":"mingw32-make.exe",
+			"args":[]
+		},
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "C:\\software\\opencv\\build\\x64\\MinGw\\bin\\libopencv_world454.dll",
+                "-I","C:\\software\\opencv\\build\\include",
+                "-I","C:\\software\\opencv\\build\\include\\opencv2",
+                "-I","C:\\software\\opencv\\build\\include\\opencv",
+                "-L","C:\\software\\opencv\\build\\x64\\MinGw\\lib",
+                "-l","libopencv_world454"
+                
+            ],
+            
+            // "problemMatcher": {
+            //     "owner": "cpp",
+            //     "fileLocation": [
+            //         "relative",
+            //         "${workspaceRoot}"
+            //     ],
+            //     "pattern": {
+            //         "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+            //         "file": 1,
+            //         "line": 2,
+            //         "column": 3,
+            //         "severity": 4,
+            //         "message": 5
+            //     }
+            // },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build",
+            "dependsOn":[
+                "build",
+                "cmake",
+                "make"
+                
+            ]
+        },
+    ]
+}
