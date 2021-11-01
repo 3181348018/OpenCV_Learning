@@ -8,12 +8,12 @@
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
-                // "C:\\software\\opencv\\build\\x64\\MinGw\\bin\\libopencv_world454.dll",
+                "C:\\software\\opencv\\build\\x64\\MinGw\\bin\\libopencv_world454.dll",
                 "-I","C:\\software\\opencv\\build\\include",
                 "-I","C:\\software\\opencv\\build\\include\\opencv2",
                 "-I","C:\\software\\opencv\\build\\include\\opencv",
-                "-L","C:\\software\\opencv\\build\\x64\\MinGw\\lib",
-                "-l","libopencv_world454"
+                // "-L","C:\\software\\opencv\\build\\x64\\MinGw\\lib",
+                // "-l","libopencv_world454"
                 
             ],
             "options": {

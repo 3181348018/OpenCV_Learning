@@ -11,7 +11,7 @@ int OtsuAlgThreshold(const Mat image);
 
 int main(int argc,char *argv[])  
 {  
-	Mat image=imread("Lena.jpg");
+	Mat image=imread("rice.png");
 	imshow("SoureImage",image);
 	cvtColor(image,image,cv::COLOR_RGB2GRAY);	
 	Mat imageOutput;

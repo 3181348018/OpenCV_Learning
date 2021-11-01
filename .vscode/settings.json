@@ -9,9 +9,11 @@
         "functional": "cpp",
         "tuple": "cpp",
         "utility": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
     // "cmake.configureSettings": {
     //     "CMAKE_TOOLCHAIN_FILE": "C:/software/vcpkg/scripts/buildsystems/vcpkg.cmake"
     //   }
+    
     
 }

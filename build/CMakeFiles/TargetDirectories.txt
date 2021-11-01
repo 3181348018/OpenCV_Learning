@@ -1,3 +1,0 @@
-C:/Users/31813/Desktop/Class/code1/build/CMakeFiles/OpencvTest.dir
-C:/Users/31813/Desktop/Class/code1/build/CMakeFiles/edit_cache.dir
-C:/Users/31813/Desktop/Class/code1/build/CMakeFiles/rebuild_cache.dir

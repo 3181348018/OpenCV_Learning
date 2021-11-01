@@ -1,5 +1,5 @@
 #include "core/core.hpp"  
-#include "highgui/highgui.hpp"  
+#include "opencv/build/highgui/highgui.hpp"  
 #include "imgproc/imgproc.hpp"  
 #include "iostream"
  
@@ -8,7 +8,7 @@ using namespace cv;
  
 int main()  
 {
-	Mat imageSource=imread("box106.jpg",0);
+	Mat imageSource=imread("box.jpg",0);
 	imshow("Source Image",imageSource);
 	Mat image;
 	GaussianBlur(imageSource,image,Size(3,3),0);
@@ -18,6 +18,9 @@ int main()
 	// image = image - lap_dst;
 	// Canny(image,image,50,250);//对图像进行边缘检测
 	threshold(image,image,0,255,cv::THRESH_OTSU); //Opencv Otsu算法
+	//获取自定义核 第一个参数MORPH_RECT表示矩形的卷积核，当然还可以选择椭圆形的、交叉型的
+    Mat element = getStructuringElement(MORPH_RECT, Size(18, 18)); 
+    morphologyEx(image,image,MORPH_OPEN,element);//对图像进行形态学处理，开运算
 	imshow("边缘检测",image);
 	vector<vector<Point>> contours;//vector容器里面放了一个vector容器，子容器里放点
 	vector<Vec4i> hierarchy;//vector内存储四维int向量，hierarchy[i][0] ~hierarchy[i][3]，分别表示第i个轮廓的后一个轮廓、前一个轮廓、父轮廓、内嵌轮廓的索引编号
