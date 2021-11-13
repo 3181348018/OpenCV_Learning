@@ -9,7 +9,7 @@ using namespace cv;
 int main()
 {
     Mat src,dst;
-    src = imread("box106.jpg");
+    src = imread("box.jpg");
     if(src.empty())
     {
         printf("can not load image \n");

@@ -219,11 +219,16 @@ $$
 
 \quad
 
-\begin{bmatrix}
-1 & 1 & \cdots & 1 \\
-1 & 1 & \cdots & 1 \\
-\vdots & \vdots & \ddots & \vdots \\
-1 & 1 & \cdots & 1 \\
+D_{N}=\begin{bmatrix}
+    1&1&1&1 \\
+    1&W_{4}^1&W_{4}^2&W_{4}^3 \\
+    1&W_{4}^2&W_{4}^4&W_{4}^6 \\
+    1&W_{4}^3&W_{4}^6&W_{4}^9
+\end{bmatrix}=\begin{bmatrix}
+    1&1&1&1 \\
+    1&i&-1&-i \\
+    1&-1&1&-1 \\
+    1&-i&-1&i
 \end{bmatrix}
 $$ 
 
@@ -281,6 +286,29 @@ $$
 
 ---
 
+### 关系运算符
+
+$$
+1.\pm\\
+2.\times\\
+3.\div\\
+4.\mid\\
+5.\nmid\\
+6.\cdot\\
+7.\circ\\
+8.\ast\\
+9.\bigodot\\
+10\bigotimes\\
+11.\bigoplus\\
+12.\leq\\
+13.\geq\\
+14.\neq\\
+15.\approx\\
+16.\equiv\\
+17.\sum\\
+18.\prod\\
+19.\coprod\\
+$$
 
 
 

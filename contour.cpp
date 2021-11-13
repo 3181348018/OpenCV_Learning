@@ -1,5 +1,5 @@
 #include "core/core.hpp"  
-#include "opencv/build/highgui/highgui.hpp"  
+#include "highgui.hpp"  
 #include "imgproc/imgproc.hpp"  
 #include "iostream"
  
@@ -24,7 +24,7 @@ int main()
 	imshow("边缘检测",image);
 	vector<vector<Point>> contours;//vector容器里面放了一个vector容器，子容器里放点
 	vector<Vec4i> hierarchy;//vector内存储四维int向量，hierarchy[i][0] ~hierarchy[i][3]，分别表示第i个轮廓的后一个轮廓、前一个轮廓、父轮廓、内嵌轮廓的索引编号
-	findContours(image,contours,hierarchy,RETR_TREE,CHAIN_APPROX_SIMPLE,Point());
+	findContours(image,contours,hierarchy,RETR_LIST,CHAIN_APPROX_NONE,Point());
 	Mat imageContours=Mat::zeros(image.size(),CV_8UC1);
 	Mat Contours=Mat::zeros(image.size(),CV_8UC1);  //绘制
 	for(int i=0;i<contours.size();i++)
