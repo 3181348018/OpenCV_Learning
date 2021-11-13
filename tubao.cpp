@@ -44,7 +44,7 @@ void thresh_callback(int, void*)
 
 int main()
 {
-    img_src = imread("./rice.png");
+    img_src = imread("box4.png");
     if(!img_src.data)
     {
         cout << "failed to read" << endl;

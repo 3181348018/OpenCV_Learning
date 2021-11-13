@@ -3,7 +3,7 @@
 using namespace cv;
 int main()
 {
-    Mat img_src = imread("./box106.jpg",0);
+    Mat img_src = imread("box3.png",0);
     imshow("img_src",img_src);
     Mat img_Lap;
     Laplacian(img_src,img_Lap,CV_16S,3,1,0);

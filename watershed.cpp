@@ -10,14 +10,14 @@ Vec3b RandomColor(int value);  //生成随机颜色函数
  
 int main()
 {
-	Mat image=imread("box.jpg");    //载入RGB彩色图像
+	Mat image=imread("Lena.jpg");    //载入RGB彩色图像
 	imshow("Source Image",image);
  
 	//灰度化，滤波，Canny边缘检测
 	Mat imageGray;
 	cvtColor(image,imageGray,COLOR_BGR2GRAY);//灰度转换
 	GaussianBlur(imageGray,imageGray,Size(5,5),2);   //高斯滤波
-	imshow("Gray Image",imageGray); 
+	// imshow("Gray Image",imageGray); 
 	Canny(imageGray,imageGray,80,150);  
 	imshow("Canny Image",imageGray);
  
