@@ -64,7 +64,12 @@ print("Hello, World!")
 
 [超链接名称]()
 
-![图片提示语](C:\\Users\\31813\\Desktop\\1.png)
+![图片提示语](./image/2021-10-21-21-21-35.png)
+
+我经常去的几个网站[Google][1]、[Leanote][2]。
+
+[1]:http://www.google.com 
+[2]:http://www.leanote.com
 
 图片粘贴快捷键：ctrl+alt+V
 
@@ -309,6 +314,13 @@ $$
 18.\prod\\
 19.\coprod\\
 $$
+
+--- 
+
+<center>行中心对齐</center>
+<p align="left">行左对齐</p>
+<p align="right">行右对齐</p>
+
 
 
 
