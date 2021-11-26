@@ -1,3 +1,4 @@
+#include<opencv2/opencv.hpp>
 #include "core/core.hpp"  
 #include "highgui.hpp"  
 #include "imgproc/imgproc.hpp"  
@@ -25,11 +26,12 @@ int main()
 	vector<Vec4i> hierarchy;//vector内存储四维int向量，hierarchy[i][0] ~hierarchy[i][3]，分别表示第i个轮廓的后一个轮廓、前一个轮廓、父轮廓、内嵌轮廓的索引编号
 	findContours(image,contours,hierarchy,RETR_LIST,CHAIN_APPROX_NONE,Point());
 	Mat imageContours=Mat::zeros(image.size(),CV_8UC1);
-	Mat Contours=Mat::zeros(image.size(),CV_8UC1);  //绘制
+	Mat Contours=Mat::zeros(image.size(),CV_8UC1);  //绘制轮廓的图
 	RNG rng(0);
 	vector<Point> cnt;
 	vector<Vec4i> defects;
 	vector<Point> hull;
+	Vec4i def;
 	for(int i=0;i<contours.size();i++)
 	{
 		//contours[i]代表的是第i个轮廓，contours[i].size()代表的是第i个轮廓上所有的像素点数
@@ -47,19 +49,21 @@ int main()
 		cout<<"向量hierarchy的第" <<str<<" 个元素内容为："<<endl<<hierarchy[i]<<endl<<endl;
 		Scalar color = Scalar(rng.uniform(0,255), rng.uniform(0,255), rng.uniform(0,255));
 		//绘制轮廓
-		drawContours(imageSource,contours,i,color,3,8,hierarchy,0, Point(0,0));
+		drawContours(Contours,contours,i,color,3,8,hierarchy,0, Point(0,0));
 		//求取凸包数量
 		cnt = contours[i];
 		convexHull(cnt,hull,false,false);
-		if(hull.size() >= 1)
-			convexityDefects(cnt,hull,defects);
-		for(int j = 0;j < defects.size();j++)
-		{
-			
-		}
+		// drawContours(Contours,hull,i,color,3,8);
+		// if(hull.size() >= 1)
+		// 	convexityDefects(cnt,hull,defects);//寻找凸缺陷
+		// for(int j = 0;j < defects.size();j++)
+		// {
+		// 	def = defects[i,0];
+
+		// }
 	}
 
-	imshow("Contours Image",imageSource); //轮廓
+	imshow("Contours Image",Contours); //轮廓
 	// imshow("Point of Contours",Contours);   //向量contours内保存的所有轮廓点集
 	waitKey(0);
 	return 0;

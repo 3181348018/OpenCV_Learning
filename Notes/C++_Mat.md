@@ -82,7 +82,7 @@ cout << "尺寸" << size << endl;
 
 `m.at<float>(r,c);`
 
-2.是用成员函数ptr
+2.使用成员函数ptr
 
 矩阵每一行的值值是连续存储在内存中的，行与行在内存中也可能存在间隔
 通过ptr成员函数可以获得执行每一行地址的指针
@@ -139,6 +139,48 @@ Mat mm = (Mat_<Vec3f>(2, 2) << Vec3f(1, 11, 21), Vec3f(2, 12, 32),
 如果知道左上角和右下角的坐标也可以确定一个矩形，所以构造函数为：
 
 `Rect(Point2i &pt1,Point2i &pt2);`
+
+---
+
+## uchar与char
+
+char 是有符号的 unsigned char 是无符号的,里面全是正数 两者都作为字符用的话是没有区别的，但当整数用时有区别： char 整数范围为-128到127( 0x80__0x7F)， 而unsigned char 整数范围为0到255( 0__0xFF ) 有时候想把整数数值限在255范围内，也用unsigned char，这个类型在嵌入式用的多
+
+## Mat数据类型指针ptr的使用
+
+```C++
+    cv::Mat image = cv::Mat(400, 600, CV_8UC1); //宽400，长600
+    uchar * data00 = image.ptr<uchar>(0);
+    uchar * data10 = image.ptr<uchar>(1);
+    uchar * data01 = image.ptr<uchar>(0)[1];
+```
+
+>定义了一个Mat变量image。
+data00是指向image第一行第一个元素的指针。
+data10是指向image第二行第一个元素的指针。
+data01是指向image第一行第二个元素的指针。
+
+注意： 
+如果你的程序使用来image.ptr指针，并且出现了下面这样的错误：（假使用的软件是Visual Studio 201x）
+>某某.exe中的 0x75065b68 处有未经处理的异常:Microsoft C++ 异常; 内存位置0x85e790处的cv::Exception。
+1
+
+这可能是因为不理解image.ptr这个指针，犯了这样的错误：image.ptr(1);指的不是image中第二个像素，而是第一行第二个像素的指针。 
+使用上面的代码举例：image有400行，有400*600个像素。假设现在你想得到第3行第42个像素的指针，如果你写成：
+
+```C++
+uchar * data = image.ptr<uchar>(3*image.cols + 41);
+```
+
+这样写是错误的，会出现上面的错误。你得到的不是第３行第４２个像素的指针，而是第（3×image.cols + 41）行第0个像素的指针，因为没有（3×image.cols + 41）行，所以没有这个指针，所以错误。 
+正确的写法：
+
+```C++
+uchar * data = image.ptr<uchar>(3)[41];
+```
+
+所以要注意这一点：如果程序可以正常编译，但是运行时出错，很有可能是你给指针赋值的时候，索引值溢出指定范围，指针乱指，导致程序跑偏，所以只有在运行时才能发现错误。
+
 
 
 
