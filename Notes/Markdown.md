@@ -328,6 +328,48 @@ $$
 <p align="left">行左对齐</p>
 <p align="right">行右对齐</p>
 
+不同字体：
+
+$
+\rm{A}\\
+\cal{A}\\
+\it{A}\\
+\Bbb{A}\\
+\bf{A}\\
+\sf{A}\\
+\tt{A}\\
+\frak{A}\\
+\boldsymbol{A}
+$
+
+---
+
+特殊符号：
+
+$\vec{a}$  向量
+$\overline{a}$ 平均值
+$\widehat{a}$ (线性回归，直线方程) y尖
+$\widetilde{a}$ 颚化符号  等价无穷小
+$\dot{a}$   一阶导数
+$\ddot{a}$  二阶导数
+
+---
+
+## 字体字号与颜色
+
+<font face="黑体">我是黑体字</font>
+<font face="微软雅黑">我是微软雅黑</font>
+<font face="STCAIYUN">我是华文彩云</font>
+<font color=#0099ff size=7 face="黑体">color=#0099ff size=72 face="黑体"</font>
+<font color=#00ffff size=72>color=#00ffff</font>
+<font color=gray size=72>color=gray</font>
+
+![](image/2022-03-21-20-13-43.png)
+![](image/2022-03-21-20-14-03.png)
+![](image/2022-03-21-20-14-17.png)
+
+
+
 
 
 
