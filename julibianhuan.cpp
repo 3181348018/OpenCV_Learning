@@ -2,14 +2,19 @@
 using namespace cv;
 int main()
 {
-    Mat imageSource=imread("box4.png");
+    Mat imageSource=imread("C:/Users/31813/Desktop/fire.jpg");
 	Mat image_gray,binary;
-	Rect sel = Rect(210,100,710,747);
-	imageSource = imageSource(sel);
 	Mat image;
-	cvtColor(imageSource,image_gray,COLOR_BGR2GRAY);
-    threshold(image_gray,binary,0,255,THRESH_OTSU);
-    imshow("binary",binary);
+    // rotate(imageSource,image_gray,0);
+	// cvtColor(imageSource,image_gray,COLOR_BGR2GRAY);
+    pyrMeanShiftFiltering(imageSource, image_gray, 21, 21);
+    // blur(imageSource,image_gray,Size(9,9));
+    double scale = 1;
+    Size dsize = Size(image_gray.cols*scale,image_gray.rows*scale);
+    Mat result = Mat(dsize,CV_32S);
+    resize(image_gray,result,dsize);
+    imshow("result",result);
+    imwrite("C:/Users/31813/Desktop/img3.png",result);
     waitKey(0);
 	return 0;
 }
